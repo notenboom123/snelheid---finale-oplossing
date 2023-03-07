@@ -13,11 +13,11 @@ let fase = 0
 let laag = 255
 let hoog = 512
 serial.writeLine("ready")
-if (true) {
+while (true) {
     if (fase == 0 && pins.analogReadPin(AnalogPin.P0) > hoog) {
+        led.plot(0, 0)
         tijd0 = input.runningTimeMicros()
         fase = 1
-        led.plot(0, 0)
     }
     if (fase == 1 && pins.analogReadPin(AnalogPin.P0) < laag) {
         tijd1 = input.runningTimeMicros()
